@@ -1,0 +1,164 @@
+\documentclass{article}
+
+
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[margin=1in]{geometry}
+
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{\filcenter}[\titlerule]
+
+\titleformat{\subsection}[frame]
+{\bfseries\Large}
+{$\bullet$}
+{0.5em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}
+{0em}
+{}
+
+\renewcommand{\maketitle} {
+	\begin{center}
+	{\huge\bfseries\theauthor}
+	\vspace{.25em}
+	\end{center}
+
+}
+
+\newcommand{\project}[3]{
+	\begin{minipage}[t]{.15\textwidth}
+		\hfill \textsc{#1}
+	\end{minipage}
+	\hfill\vline\hfill
+	\begin{minipage}[t]{.80\textwidth}
+		\textit{#2}
+		\footnotesize{#3}
+	\end{minipage}
+}
+
+
+\begin{document}
+	\title{R\'esum\'e}
+	\author{Rakshit Shetty}
+
+	\maketitle
+
+	\section{Technical Skills}
+		\subsection{Languages}
+			\subsubsection{Programming}
+				 	C \& C++(Basic), Haskell(Basic) , Java, Javascript(+Typescript), Kotlin(Basic), Lisp(Basic), Python, Rust, SQL, Shell Scripting(sh, bash, zsh)
+				% \begin{itemize}
+				% 	\item C \& C++(Basic)
+				% 	\item Haskell(Basic) 
+				% 	\item Java
+				% 	\item Javascript(+Typescript)
+				% 	\item Kotlin(Basic)
+				% 	\item Lisp(Basic)
+				% 	\item Python
+				% 	\item Rust
+				% 	\item SQL
+				% 	\item Shell Scripting(sh, bash, zsh)
+				% \end{itemize}
+			\subsubsection{Markup}
+				 	CSS, HTML(+XML), {\LaTeX}, Markdown(Github Flavored)
+				% \begin{itemize}
+				% 	\item CSS
+				% 	\item HTML(+XML)
+				% 	\item {\LaTeX}
+				% 	\item Markdown(Github Flavored)
+				% \end{itemize}
+		\subsection{Multimedia}
+			\subsubsection{Image}
+				\begin{itemize}
+					\item Image Manipulation
+					\item Color(Correction, Keying, LUT's)
+				\end{itemize}
+			\subsubsection{Video}
+				\begin{itemize}
+					\item Editing(Retime, Color Correction, etc)
+					\item Visual Effects(Basic)
+				\end{itemize}
+			\subsubsection{Audio}
+				\begin{itemize}
+					\item Basic Audio(Vocals) Processing
+					\item Basic Music Production Knowledge(MIDI's, VST's, Keyframing, etc)
+				\end{itemize}
+			\subsubsection{UI Prototyping}
+				\begin{itemize}
+					\item Designing UI's
+					\item Basic Prototyping
+				\end{itemize}
+		\subsection{Software}
+			\subsubsection{Programming}
+				\begin{itemize}
+					\item Vim
+					\item VSCode
+				\end{itemize}
+			\subsubsection{Multimedia}
+				\begin{itemize}
+					\item GIMP
+					\item Davinci Resolve(+Fusion \& Fairlight)
+					\item Reaper
+					\item Audacity
+					\item Cakewalk
+					\item Figma
+				\end{itemize}
+			\subsubsection{Others}
+				\begin{itemize}
+					\item Microsoft Office(Word, Excel \& Powerpoint)
+				\end{itemize}
+		\subsection{Others}
+			\begin{itemize}
+				\item OS Proficiency: Linux, Mac OS, Windows
+				\item \subsubsection{Linux Proficiency}
+						\begin{itemize}
+							\item Users \& File Permissions Management
+							\item UNIX file system
+							\item Bootloaders
+							\item Kernel Configuration
+							\item Creating Lightweight Linux's(Gentoo, Linux From Scratch)
+						\end{itemize}
+			\end{itemize}
+	\section{General Skills}
+		\subsection{Languages}
+			\begin{itemize}
+				\item English
+				\item Hindi
+				\item Marathi
+				\item Kannada
+				\item Tulu
+			\end{itemize}
+		\subsection{Hobbies}
+			\begin{itemize}
+				\item Fitness, Health \& Nutrition
+				\item Music
+				\item Video Games
+			\end{itemize}
+	\section{Education}
+		\subsection{SSC} 
+			Completed from \emph{Marol Education Academy's High School} with \textbf{89.80\%}.
+		\subsection{HSC} 
+			Completed from \emph{Holy Family's Junior College} with \textbf{61.85\%}
+		\subsection{Entrance} 
+			\begin{itemize}
+				\item JEE Mains with \textbf{89} percentile.
+				\item CET with \textbf{62} percentile.
+			\end{itemize}
+		\subsection{B.E(Current)}
+			Average CGPA of \textbf{7.*} upto TE of BE with no active backlogs.
+	\section{Experience}
+		\subsection{Projects}
+				\subsubsection{Timescale} 
+					A time management utility designed using Java + JavaFX + MySQL
+				\subsubsection{Infoscraper} 
+					A web fetch utility designed using Python(BeautifulSoup, Selenium, request, tkinter)
+				\subsubsection{Kilowog} 
+					A no-database product comparison engine with recommendation capabilities 
+					designed using Web Technologies(React+Typescript+HTML+CSS) \& Rust(Server \& Scraper)
+\end{document}

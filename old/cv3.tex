@@ -1,0 +1,283 @@
+\documentclass{article}
+
+
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+
+
+\newcommand{\email}{\color{blue}{rakshit24x7@gmail.com}\color{black}}
+\newcommand{\school}{Marol course Academy's High School}
+\newcommand{\hischool}{Holy Family's Junior College}
+\newcommand{\college}{Atharva College Of Engineering}
+
+
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{\filcenter}[\titlerule]
+
+\titleformat{\subsection}
+{\bfseries\Large}
+%{$\bullet$}
+{}
+{0em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}
+{.9em}
+{}
+
+\renewcommand{\maketitle} {
+	\begin{center}
+		{\huge\bfseries\theauthor} \linebreak[4]
+		\vspace{.25em}
+		\email \linebreak[4]
+		\textsl{Ambitious with a knack for fast-performing, neat-looking and future-proof design philosophies.}
+	\end{center}
+}
+
+% \renewcommand{\labelitemi}{\blacksquare}
+
+       
+%  _______  _______  _______  _______  _______  _        ______   _______ 
+% (  ____ \(  ___  )(       )(       )(  ___  )( (    /|(  __  \ (  ____ \
+% | (    \/| (   ) || () () || () () || (   ) ||  \  ( || (  \  )| (    \/
+% | |      | |   | || || || || || || || (___) ||   \ | || |   ) || (_____ 
+% | |      | |   | || |(_)| || |(_)| ||  ___  || (\ \) || |   | |(_____  )
+% | |      | |   | || |   | || |   | || (   ) || | \   || |   ) |      ) |
+% | (____/\| (___) || )   ( || )   ( || )   ( || )  \  || (__/  )/\____) |
+% (_______/(_______)|/     \||/     \||/     \||/    )_)(______/ \_______)
+
+% #1 = Course Name
+% #2 = Duration
+% #3 = Institute Name
+% #4 = Score Type
+% #5 = Score Value
+% #6 = Description
+% #7 = Current Bar
+\newcommand{\course}[6]{
+	\begin{minipage}[t]{.15\textwidth}
+		% \ifodd \value{#7} {}\else {\dotfill}\fi
+		\hfill \large \textsc{#1}\hspace{1cm}\linebreak[4]
+		\vspace{1cm}
+		\hfill \footnotesize \texttt{#2}
+		% \ifodd \value{#7} {}\else {\dotfill}\fi
+	\end{minipage}
+	\hfill\vline\hfill
+	\begin{minipage}[t]{.80\textwidth}
+		% \ifodd \value{#7} {}\else {\dotfill}\fi
+		\large \textsl{#3}
+
+		#6
+		
+		#4: \textbf{#5}
+		% \ifodd \value{#7} {}\else {\dotfill}\fi
+	\end{minipage}
+}
+
+\newcommand{\currentsep}{
+	\begin{center}
+		% \rule{5em}{.01em}\linebreak[4]
+		\dotfill
+	\end{center}
+}
+
+% #1: Entrance
+% #2: Year
+% #3: Score
+\newcommand{\entrance}[3]{
+	\begin{minipage}[t]{.15\textwidth}
+		\hfill \large \textsc{#1}\hspace{1cm}\linebreak[4]
+		\vspace{1cm}
+		\hfill \footnotesize \texttt{#2}
+	\end{minipage}
+	\hfill\vline\hfill
+	\begin{minipage}[t]{.80\textwidth}
+		\textsl{\textbf{#3}}
+	\end{minipage}
+}
+
+\newcommand{\project}[4]{
+	\begin{minipage}[t]{.15\textwidth}
+		\hfill \textsc{#1}
+	\end{minipage}
+	\hfill\vline\hfill
+	\begin{minipage}[t]{.80\textwidth}
+
+		\texttt{#2}
+
+		\textsl{#3}
+
+		\url{#4}
+
+		\dotfill
+	\end{minipage}
+}
+
+\newcommand{\unimportant}[1]{
+	\color{gray}{#1}\color{black}
+}
+
+
+%  ______   _______  ______           
+% (  ___ \ (  ___  )(  __  \ |\     /|
+% | (   ) )| (   ) || (  \  )( \   / )
+% | (__/ / | |   | || |   ) | \ (_) / 
+% |  __ (  | |   | || |   | |  \   /  
+% | (  \ \ | |   | || |   ) |   ) (   
+% | )___) )| (___) || (__/  )   | |   
+% |/ \___/ (_______)(______/    \_/   
+\begin{document}
+	\title{R\'esum\'e}
+	\author{Rakshit Shetty}
+
+	\maketitle
+
+	\section{Technical Skills}
+		\subsection{Languages}
+			\subsubsection{Programming}
+					% C \& C++(Basic), Haskell(Basic) , Java, Javascript(+Typescript), Kotlin(Basic), Lisp(Basic), Python, \fcolorbox{black}{orange}{\texttt{Rust}}, SQL, Shell Scripting(sh, bash, zsh)
+				\begin{itemize}
+					\item \unimportant{C \& C++}
+					\item \unimportant{Haskell}
+					\item Java
+					\item Javascript(+Typescript)
+					\item Kotlin
+					\item \unimportant{Lisp}
+					\item Python
+					\item Rust
+					\item SQL
+					\item Shell Scripting(sh, bash, zsh)
+				\end{itemize}
+			\subsubsection{Markup}
+				 	% CSS, HTML(+XML), {\LaTeX}, Markdown(Github Flavored)
+				\begin{itemize}
+					\item CSS
+					\item HTML(+XML)
+					\item {\LaTeX}
+					\item Markdown(Github Flavored)
+				\end{itemize}
+		\subsection{Multimedia}
+			\subsubsection{Image}
+				\begin{itemize}
+					\item Image Manipulation
+					\item Color(Correction, Keying, LUT's)
+				\end{itemize}
+			\subsubsection{Video}
+				\begin{itemize}
+					\item Editing(Retime, Color Correction, etc)
+					\item Visual Effects(Basic)
+				\end{itemize}
+			\subsubsection{Audio}
+				\begin{itemize}
+					\item Basic Audio(Vocals) Processing
+					\item Basic Music Production Knowledge(MIDI's, VST's, Keyframing, etc)
+				\end{itemize}
+			\subsubsection{UI Prototyping}
+				\begin{itemize}
+					\item Designing UI's
+					\item Basic Prototyping
+				\end{itemize}
+		\subsection{Software}
+			\subsubsection{Programming}
+				\begin{itemize}
+					\item Vim
+					\item Git
+					\item Docker
+				\end{itemize}
+			\subsubsection{Multimedia}
+				\begin{itemize}
+					\item GIMP
+					\item Davinci Resolve(+Fusion \& Fairlight)
+					\item Reaper
+					\item Audacity
+					\item Cakewalk
+					\item Figma
+				\end{itemize}
+			\subsubsection{Others}
+				\begin{itemize}
+					\item Microsoft Office(Word, Excel \& Powerpoint)
+				\end{itemize}
+		\subsection{Others}
+			\begin{itemize}
+				\item OS Proficiency: Linux, Mac OS, Windows
+				\item \subsubsection{Linux Proficiency}
+						\begin{itemize}
+							\item Users \& File Permissions Management
+							\item UNIX file system
+							\item Bootloaders
+							\item Kernel Configuration
+							\item Creating Lightweight Linux's(Gentoo, Linux From Scratch)
+						\end{itemize}
+			\end{itemize}
+	\section{General Skills}
+		\subsection{Languages}
+			\begin{itemize}
+				\item English
+				\item Hindi
+				\item Marathi
+				\item Kannada
+				\item Tulu
+			\end{itemize}
+		\subsection{Hobbies}
+			\begin{itemize}
+				\item Fitness, Health \& Nutrition
+				\item Music
+				\item Video Games
+			\end{itemize}
+	\section{Education}
+		\course{SSC}
+			{2016-2017} 
+			{\school}
+			{Percentage}
+			{89.80\%}
+			{}
+		\course{HSC}
+			{2018-2019} 
+			{\hischool}
+			{Percentage}
+			{61.85\%}
+			{}
+		\entrance{JEE Mains}{2019}{89}
+		\entrance{CET}{2019}{62}
+		\currentsep
+		\course{B.E\scriptsize(Current)}
+			{2019-Current}
+			{\college}
+			{CGPA\scriptsize Avg\large}
+			{8.02}
+			{No active backlogs :)}
+		\currentsep
+	\section{Experience}
+		\subsection{Projects}
+				\project{Timescale}
+				{Java + JavaFX + MySQL}
+				{A time management utility}
+				{-}
+				\project{Lukup}
+				{Python(BeautifulSoup, Selenium, request, tkinter)}
+				{A web fetch utility. \footnotesize Configure once and keep fetching infinitely from your sources!}
+				{https://github.com/decent-man/lukup}
+				\project{Kilowog}
+				{Web Technologies(React+Typescript+HTML+CSS) \& Rust(Server \& Scraper)}
+				{A no-database product comparison engine with recommendation capabilities.}
+				{https://github.com/decent-man/prcomp}
+\end{document}
+
+		% \course{Entrance}
+		% 	{2019-2019}
+		% 	{-}
+		% 	{}
+		% 	{}
+		% 	{
+		% 		\begin{itemize}
+					% \item 
+					% \item 
+				% \end{itemize}
+			% }
