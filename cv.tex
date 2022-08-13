@@ -20,8 +20,10 @@
 \newcommand{\college}{Atharva College Of Engineering}
 \newcommand{\linkedin}{\color{blue}\url{https://www.linkedin.com/in/rakshit-shetty-465777242}\color{black}}
 \newcommand{\github}{\color{blue}\url{https://github.com/decent-man}\color{black}}
+\newcommand{\about}{Ambitious along with a knack for fast-performing, neat-looking and future-proof design philosophies.\linebreak[4] I care about the end user.}
 
 
+\newcommand{\linedel}{\vspace{-1.9em}}
 \newcommand{\quarterwidth}{0.25\linewidth}
 \newcommand{\thirdwidth}{0.33\linewidth}
 \newcommand{\halfwidth}{0.50\linewidth}
@@ -31,14 +33,14 @@
 {\huge\bfseries}
 {}
 {0em}
-{\filcenter}[\titlerule]
+{\raggedright}[\titlerule]
 
 \titleformat{\subsection}
 {\bfseries\Large}
 %{$\bullet$}
 {}
 {0em}
-{}
+{\raggedright}
 
 \titleformat{\subsubsection}[runin]
 {\bfseries}
@@ -55,11 +57,11 @@
 		\vspace{.25em}
 		\dob \linebreak[4]
 		\vspace{.25em}
-		\textsl{Ambitious with a knack for fast-performing, neat-looking and future-proof design philosophies.} \linebreak[4]
+		\textsl{\about} \linebreak[4]
 		\vspace{.45em}
 		\newline
-		\textbf{LinkedIn:} \linkedin \linebreak[4]
 		\textbf{Github:} \github \linebreak[4]
+		\textbf{LinkedIn:} \linkedin \linebreak[4]
 		\vspace{.25em}
 	% \end{left}
 }
@@ -129,18 +131,22 @@
 	\end{minipage}
 }
 
-\newcommand{\project}[4]{
+\newcommand{\project}[6]{
 	\begin{minipage}[t]{.15\textwidth}
-		\hfill \textsc{#1}
+		\hfill \textsc{#1}\linebreak[4]
+		\vspace{1cm}
+		\hfill \footnotesize \texttt{#2}
 	\end{minipage}
 	\hfill\vline\hfill
 	\begin{minipage}[t]{.80\textwidth}
 
-		\texttt{#2}
+		\texttt{#3}
 
-		\textsl{#3}
+		\textsl{#4}
 
-		\url{#4}
+		\footnotesize{#5}
+
+		\url{#6}
 
 		\dotfill
 	\end{minipage}
@@ -179,6 +185,7 @@
 
 	\section{Technical Skills}
 		\subsection{Languages}
+			\linedel
 			\begin{table}[h!]
 				\begin{tabular}{|p{\halfwidth}|p{\halfwidth}|}
 					\toprule
@@ -193,11 +200,11 @@
 					Python							&				\\
 					Rust							&				\\
 					SQL								&				\\
-					Shell Scripting(sh, bash, zsh)	&				\\
+					Shell Scripting \fbox{sh}\fbox{bash}\fbox{zsh}	&				\\
 					\bottomrule
 				\end{tabular}
 			\end{table}
-		\subsection{OS}
+		\subsection{OS\color{white}\_\color{black}Proficiency}
 			\begin{itemize}
 				\item \textsl{Windows}
 				\item \textsl{Mac OS}
@@ -207,11 +214,14 @@
 					\item UNIX file system
 					\item Bootloaders
 					\item Kernel Configuration
-					\item Creating Lightweight Linux's(Gentoo, Linux From Scratch)
+					\item Creating Lightweight Linux's \fbox{\emph{Gentoo}}\fbox{\emph{Linux From Scratch}}
+					\item Init Systems \fbox{\emph{SysVInit}}\fbox{\emph{OpenRC}}\fbox{\emph{runit}}
+					\item Cron
 				\end{itemize}
 			\end{itemize}
-		\newpage
+		% \pagebreak
 		\subsection{Environments}
+			\linedel
 			\begin{table}[h!]
 				\begin{tabular}[c]{|p{\halfwidth}|p{\halfwidth}|}
 					\toprule
@@ -225,6 +235,7 @@
 
 	\section{Creative Skills}
 		\subsection{Multimedia}
+			\linedel
 			\begin{table}[h!]
 				\begin{tabular}[c]{|p{\quarterwidth}|p{\quarterwidth}|p{\quarterwidth}|p{\quarterwidth}|}
 					\toprule
@@ -236,6 +247,7 @@
 				\end{tabular}
 			\end{table}
 		\subsection{Environments}
+			\linedel
 			\begin{table}[h!]
 				\begin{tabular}[c]{|p{\halfwidth}|p{\halfwidth}|}
 					\toprule
@@ -293,16 +305,22 @@
 	\section{Experience}
 		\subsection{Projects}
 				\project{Timescale}
+				{2020}
 				{Java + JavaFX + MySQL}
 				{A time management utility}
+				{}
 				{-}
 				\project{Lukup}
+				{2021}
 				{Python(BeautifulSoup, Selenium, request, tkinter)}
-				{A web fetch utility. \footnotesize Configure once and keep fetching infinitely from your sources!}
+				{A web fetch utility.}
+				{Configure once and keep fetching infinitely from your sources!}
 				{https://github.com/decent-man/lukup}
 				\project{Kilowog}
+				{2021-2022}
 				{Web Technologies(React+Typescript+HTML+CSS) \& Rust(Server \& Scraper)}
 				{A no-database product comparison engine with recommendation capabilities.}
+				{Multiple E-commerce giants brought together on an intuitive UI to generate comparisons.}
 				{https://github.com/decent-man/prcomp}
 \end{document}
 
