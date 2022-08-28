@@ -1,14 +1,40 @@
-\documentclass{resume}
+\documentclass[12pt, a4paper]{article}
 
 \usepackage{titlesec}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{Arvo}
-\usepackage[T1]{fontenc}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=.64in]{geometry}
 
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=cyan, linkcolor=cyan, citecolor=cyan}
+
+\usepackage[T1]{fontenc}
 \fontfamily{Arvo}\selectfont
+
+% Code for Skill level rating
+\usepackage{scalerel}
+\usepackage{stackengine}
+\newcommand{\openbullet}{\ensuremath{\circ}}%
+\newcommand{\solidbullet}{\ensuremath{\bullet}}%
+\newcounter{counter_skilllevel}% counter variable
+\newcommand{\level}[1]{% define skill-level function
+    \setcounter{counter_skilllevel}{0}% reset counter
+    \loop% solid bullet loop
+        \textcolor{black}{\Large\solidbullet}\,% draw filled circle and small space
+        \stepcounter{counter_skilllevel}% i++
+        \ifnum \value{counter_skilllevel}<#1% continue if target level not reached yet
+    \repeat% close loop
+    \loop% open bullet loop
+        \ifnum \value{counter_skilllevel}<5% check max condition first
+        \stepcounter{counter_skilllevel}% i++
+        \textcolor{darkgray}{\Large\openbullet}\,% draw unfilled circle and small space
+    \repeat%
+}
 
 \newcommand{\photo}{
 	\begin{figure}[h]
@@ -22,10 +48,116 @@
 \newcommand{\college}{Atharva College Of Engineering}
 \newcommand{\linkedin}{\color{blue}\url{https://www.linkedin.com/in/rakshit-shetty-465777242}\color{black}}
 \newcommand{\github}{\color{blue}\url{https://github.com/decent-man}\color{black}}
-\newcommand{\about}{Ambitious along with a knack for fast-performing, neat-looking and future-proof design philosophies.\linebreak[4] I care about the end user.}
+\newcommand{\about}{Ambitious along with a knack for fast-performing, neat-looking \& future-proof design philosophies. I care about the end user.}
+
+
+\renewcommand{\maketitle} {
+	\raggedright
+		{\huge\bfseries\theauthor} \linebreak[4]
+		\vspace{.25em}
+		\email \linebreak[4]
+		\vspace{.25em}
+		\dob \linebreak[4]
+		\vspace{.25em}
+		\parbox{17em}{
+			\textsl{\about} \linebreak[4]
+		}
+		\vspace{.45em}
+		% \newline
+		% \textbf{Github:} \github \linebreak[4]
+		% \textbf{LinkedIn:} \linkedin \linebreak[4]
+		% \vspace{.25em}
+}
 
 % |\/| _.o._  
 % |  |(_||| | 
             
+\setlength\columnseprule{.4pt}
 \begin{document}
+	\title{R\'esum\'e}
+	\author{Rakshit Shetty}
+
+	\maketitle
+
+	\begin{multicols}{2}
+		\begin{minipage}{0.25\linewidth}
+			\begin{itemize}
+				\item[] {\large\bfseries Education}
+				\item[] {\large\bfseries Projects}
+			\end{itemize}
+		\end{minipage}
+	\columnbreak
+				\newline
+				{\large\bfseries Skills}
+				{\setlength\columnseprule{0pt}
+				\begin{multicols}{2}
+					\begin{table}[H]
+						\label{tab:}
+							\begin{tabular}[c]{ll}
+								\multicolumn{2}{r}{\slshape\bfseries Coding}\\
+								\toprule
+								Rust & \level{4} \\
+								Shell & \level{4} \\
+								{\footnotesize Typescript} & \level{3} \\
+								HTML5 & \level{3} \\
+								CSS3 & \level{3} \\
+								{\footnotesize Markdown} & \level{3} \\
+								Python & \level{3} \\
+								Java & \level{2} \\
+								C & \level{2} \\
+								Kotlin & \level{2} \\
+								{\LaTeX} & \level{2} \\
+								SQL & \level{2} \\
+								C++ & \level{1} \\
+								Haskell & \level{1} \\
+								Lisp & \level{1} \\
+							\end{tabular}
+					\end{table}
+				% -------------------
+				\columnbreak
+				% -------------------
+					\begin{table}[H]
+						\label{tab:}
+						\raggedleft
+							\begin{tabular}[c]{ll}
+								\multicolumn{2}{r}{\slshape\bfseries Creative}\\
+								\toprule
+								\footnotesize Video & \level{4} \\
+								\footnotesize Image & \level{3} \\
+								\footnotesize Audio & \level{2} \\
+							\end{tabular}
+					\end{table}
+					% -------------------
+					\begin{table}[H]
+						\label{tab:}
+						\raggedleft
+							\begin{tabular}[c]{ll}
+								\multicolumn{2}{r}{\slshape\bfseries Language}\\
+								\toprule
+								\footnotesize English & \level{4} \\
+								\footnotesize Hindi & \level{4} \\
+								\footnotesize Kannada & \level{3} \\
+								\footnotesize Marathi & \level{2} \\
+							\end{tabular}
+					\end{table}
+					% -------------------
+					\begin{table}[H]
+						\label{tab:}
+						\raggedleft
+							\begin{tabular}[c]{ll}
+								\multicolumn{2}{r}{\slshape\bfseries Others}\\
+								\toprule
+								\footnotesize Linux & \level{4} \\
+								\footnotesize Git & \level{3} \\
+								\footnotesize Docker & \level{2} \\
+							\end{tabular}
+					\end{table}
+				\end{multicols}
+				}
+				{\large\bfseries Technologies}
+				{\large\bfseries Strengths}
+				{\large\bfseries Weakness}
+				
+				\parbox{10em}{Vim, ReactJS, MongoDB, MySQL, Actix-Web, Git, Docker, GNU Make, Regex}
+	\end{multicols}
 \end{document}
