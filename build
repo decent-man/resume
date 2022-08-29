@@ -1,2 +1,3 @@
 #!/bin/sh
 pdflatex --output-directory=pdf cv.tex
+open pdf/cv.pdf
