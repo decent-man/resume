@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{Arvo}
 \usepackage[margin=.64in]{geometry}
@@ -21,6 +22,12 @@
 \setlength{\dashlinedash}{.3em}
 \setlength{\dashlinegap}{.2em}
 \setlength{\arrayrulewidth}{0.1em}
+\usepackage{paralist}
+
+\usepackage{graphbox}
+\graphicspath{ {./assets/} }
+\usepackage{svg}
+\svgpath{ {./assets/svg/} }
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, urlcolor=cyan, linkcolor=cyan, citecolor=cyan}
@@ -80,22 +87,57 @@
 	\cmidrule[0.1em](r{\dimexpr5.5cm+\tabcolsep-7.75cm\relax}){1-1}
 }
 
+\newcommand{\widmax}{19em}
 \newcommand{\project}[6]{
-	\subsection{#1}
-		% \hfill \textsc{#1}\linebreak[4]
-		% \vspace{1cm}
-		% \hfill 
-		\footnotesize \texttt{#2}
+	\def\arraystretch{0.75}
+	\begin{table}[H]
+		\label{tab:}
+		\begin{center}
+			\begin{tabular}[c]{l r}
+				% Title & When
+				{\footnotesize \textbf{#1}} & /{\footnotesize \textbf{#2}}/ \\
+				\toprule
+				% Technologies
+				\multicolumn{2}{p{\widmax}}{\raggedleft\footnotesize\texttt{#3}} \\
+				% Short Description
+				\multicolumn{2}{p{\widmax}}{\footnotesize\textsl{#4}} \\
+				% Alt Description
+				\multicolumn{2}{p{\widmax}}{\scriptsize{#5}} \\
+				% Linkto
+				\multicolumn{2}{p{\widmax}}{\scriptsize \url{#6}} \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+}
 
-		\texttt{#3}
+\newcommand{\logo}[2]{
+	\includegraphics[width=#2,align=c]{#1}
+}
 
-		\textsl{#4}
+\newcommand{\hlogo}[2]{
+	\includegraphics[height=#2,align=c]{#1}
+}
 
-		\footnotesize{#5}
+\newcommand{\tech}[2]{
+	% \setlength\fboxsep{2pt}\fbox{
+	\setlength\tabcolsep{1pt}\begin{tabular}{m{3cm}c}
+	\includegraphics[width=1.27em,align=c]{#2} & #1 \\
+	\end{tabular}
+	% }
+}
 
-		\url{#6}
+\newcommand{\subtech}[2]{
+	#1
+}
 
-		\dotfill
+\newcommand{\course}[4]{
+	\setlength\fboxsep{2pt}\fbox{
+		\begin{tabular}{p{8em} p{7em} p{1em} p{3em}}
+			\footnotesize \textbf{#1} &  &  & #4 \\
+				    \small\textit{#2} &  &  & \\
+			\multicolumn{4}{l}{\scriptsize #3} \\
+		\end{tabular}
+			}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,25 +269,44 @@
 	\begin{multicols}{2}
 		\begin{minipage}{0.25\linewidth}
 				\section{Projects}
-					% \project{Timescale}
-					% {2020}
-					% {Java + JavaFX + MySQL}
-					% {A time management utility}
-					% {}
-					% {-}
-					% \project{Lukup}
-					% {2021}
-					% {Python(BeautifulSoup, Selenium, request, tkinter)}
-					% {A web fetch utility.}
-					% {Configure once and keep fetching infinitely from your sources!}
-					% {https://github.com/decent-man/lukup}
-					% \project{Kilowog}
-					% {2021-2022}
-					% {Web Technologies(React+Typescript+HTML+CSS) \& Rust(Server \& Scraper)}
-					% {A no-database product comparison engine with recommendation capabilities.}
-					% {Multiple E-commerce giants brought together on an intuitive UI to generate comparisons.}
-					% {https://github.com/decent-man/prcomp}
+					\setlength\intextsep{-0.3em}
+					\project{Timescale} {2020}
+					{ \tech{Java}{java}\hlogo{javafx}{2.6em}| 
+					  \tech{MySQL}{mysql} }
+					{A time management utility.}
+					{Make plans and get reminded :)}
+					{-}
+					\project{Lukup} {2021}
+					{ \tech{Python}{python} BeautifulSoup | request 
+					  \tech{Selenium}{selenium} 
+					  \tech{tkinter}{tk}
+					}
+					{A query maker.}
+					{Keep querying your favourite sources on the web for information!}
+					{https://github.com/decent-man/lukup}
+					\project{Kilowog}
+					{2021-2022}
+					{\tech{React}{react} \tech{Typescript}{ts} \tech{HTML}{html} \tech{CSS}{css} 
+					 \tech{Rust}{rust}(Server \& Scraper)
+				  \& \tech{Python}{python}(ML)
+					}
+					{A product comparison engine with recommendation capabilities.}
+					{Search for products and get results from multiple E-commerce giants on an intuitive UI tailored for information transparency.
+					 No databases just scraping.}
+					{https://github.com/decent-man/prcomp}
 				\section{Education}
+					\course{SSC}
+						{2017}
+						{\school}
+						{89.80\%}
+					\course{HSC}
+						{2019}
+						{\hischool}
+						{61.85\%}
+					\course{B.E.I.T}
+						{2023}
+						{\college}
+						{8.12}
 		\end{minipage}
 	\columnbreak
 		% {\large\bfseries Skills}
@@ -267,10 +328,22 @@
 		}
 		% {\large\bfseries Technologies}
 		\section{Technologies}
-		\parbox{10em}{Vim, ReactJS, MongoDB, MySQL, Actix-Web, Git, Docker, GNU Make, Regex}
-		% {\large\bfseries Strengths}
+		\newcommand{\lht}{1.5em}
+		\parbox{19em}{
+			\hlogo{vim}{\lht} 
+			\hlogo{gitFull}{\lht} 
+			\hlogo{dockerFull}{\lht} 
+			\hlogo{reactFull}{\lht} 
+			\hlogo{mongoFull}{\lht} 
+			\hlogo{mysqlFull}{\lht} 
+			Actix-Web, GNU Make, Regex
+		}
 		\section{Strengths}
-		% {\large\bfseries Weakness}
+			\parbox{19em}{Versatile, Adaptive, Creative, Analytical, Logical, Prospecting}
 		\section{Weakness}
+			\parbox{19em}{Procrastination, Lazy, Overthinking, Pessimistic}
 	\end{multicols}
 \end{document}
+
+		% {\large\bfseries Strengths}
+		% {\large\bfseries Weakness}
