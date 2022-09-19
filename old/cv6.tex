@@ -1,0 +1,437 @@
+\documentclass[12pt, a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ██████╗  █████╗  ██████╗██╗  ██╗ █████╗  ██████╗ ███████╗███████╗
+% ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔════╝ ██╔════╝██╔════╝
+% ██████╔╝███████║██║     █████╔╝ ███████║██║  ███╗█████╗  ███████╗
+% ██╔═══╝ ██╔══██║██║     ██╔═██╗ ██╔══██║██║   ██║██╔══╝  ╚════██║
+% ██║     ██║  ██║╚██████╗██║  ██╗██║  ██║╚██████╔╝███████╗███████║
+% ╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{Arvo}
+\usepackage[margin=.55in,left=1cm]{geometry}
+% \usepackage{showframe}
+
+\usepackage{arydshln}
+\setlength{\dashlinedash}{.3em}
+\setlength{\dashlinegap}{.2em}
+\setlength{\arrayrulewidth}{0.1em}
+\usepackage{paralist}
+
+\usepackage{graphbox}
+\graphicspath{ {./assets/} }
+\usepackage{svg}
+\svgpath{ {./assets/svg/} }
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=cyan, linkcolor=cyan, citecolor=cyan}
+
+\usepackage[T1]{fontenc}
+\fontfamily{Arvo}\selectfont
+
+\setlength\intextsep{0.3em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ █████╗ ███╗   ██╗██████╗ ███████╗
+% ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝
+% ██║     ██║   ██║██╔████╔██║██╔████╔██║███████║██╔██╗ ██║██║  ██║███████╗
+% ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
+% ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
+%  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                                         
+% Skill level rating
+\usepackage{scalerel}
+\usepackage{stackengine}
+\newcommand{\maxlevel}{5}
+\newcommand{\openbullet}{\ensuremath{\circ}}%
+\newcommand{\solidbullet}{\ensuremath{\bullet}}%
+\newcounter{counter_skilllevel}% counter variable
+\newcommand{\level}[1]{% define skill-level function
+    \setcounter{counter_skilllevel}{0}% reset counter
+    \loop% solid bullet loop
+        \textcolor{black}{\Large\solidbullet}\,% draw filled circle and small space
+        \stepcounter{counter_skilllevel}% i++
+        \ifnum \value{counter_skilllevel}<#1% continue if target level not reached yet
+    \repeat% close loop
+    \loop% open bullet loop
+        \ifnum \value{counter_skilllevel}<\maxlevel% check max condition first
+        \stepcounter{counter_skilllevel}% i++
+        \textcolor{darkgray}{\Large\openbullet}\,% draw unfilled circle and small space
+    \repeat%
+}
+
+\newcommand{\photo}{
+	\includegraphics[width=2.8cm]{me.png}
+}
+\newcommand{\email}{\color{blue}{rakshit24x7@gmail.com}\color{black}}
+\newcommand{\dob}{$19^{th}$ February 2002}
+\newcommand{\school}{Marol Education Academy's High School}
+\newcommand{\hischool}{Holy Family's Junior College}
+\newcommand{\college}{Atharva College Of Engineering}
+\newcommand{\linkedin}{\color{blue}\url{https://www.linkedin.com/in/rakshit-shetty-465777242}\color{black}}
+\newcommand{\github}{\color{blue}\url{https://github.com/decent-man}\color{black}}
+\newcommand{\about}{Ambitious along with a knack for fast-performing, neat-looking \& future-proof design philosophies. I care about the end user.}
+
+% Variables
+\newcommand{\skcolalign}{r}
+
+\newcommand{\shortrule}{
+	\cmidrule[0.1em](r{\dimexpr5.5cm+\tabcolsep-7.75cm\relax}){1-1}
+}
+
+\newcommand{\social}[3]{
+	\href{#1}{
+		\includegraphics[height=#2]{#3}
+	}
+}
+
+\newcommand{\widmax}{19em}
+\newcommand{\project}[6]{
+	\def\arraystretch{0.75}
+	\begin{table}[H]
+		\label{tab:}
+		\begin{center}
+			\begin{tabular}[c]{lr}
+				% Title & When
+				{\footnotesize \textbf{#1}} & /{\footnotesize \textbf{#2}}/ \\
+				\toprule
+				% Technologies
+				\multicolumn{2}{p{\widmax}}{\raggedleft\footnotesize\texttt{#3}} \\
+				% Short Description
+				\multicolumn{2}{p{\widmax}}{\footnotesize\textsl{#4}} \\
+				% Alt Description
+				\multicolumn{2}{p{\widmax}}{\scriptsize{#5}} \\
+				% Linkto
+				\multicolumn{2}{p{\widmax}}{\scriptsize{#6}} \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+}
+
+\newcommand{\logo}[2]{
+	\includegraphics[width=#2,align=c]{#1}
+}
+
+\newcommand{\hlogo}[2]{
+	\includegraphics[height=#2,align=c]{#1}
+}
+
+\newcommand{\tech}[2]{
+	% \setlength\fboxsep{2pt}\fbox{
+	\setlength\tabcolsep{1pt}\begin{tabular}{m{3cm}c}
+	\includegraphics[width=1.27em,align=c]{#2} & #1 \\
+	\end{tabular}
+	% }
+}
+
+\newcommand{\subtech}[2]{
+	#1
+}
+
+\newcommand{\course}[4]{
+	\setlength\fboxsep{2pt}\fbox{
+		\begin{tabular}{p{8em} p{7em} p{1em} p{3em}}
+			\footnotesize \textbf{#1} &  &  & \textbf{#4} \\
+				    \small\textit{#2} &  &  & \\
+			\multicolumn{4}{l}{\scriptsize #3} \\
+		\end{tabular}
+			}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ██████╗ ██╗   ██╗███████╗██████╗ ██████╗ ██╗██████╗ ███████╗
+% ██╔═══██╗██║   ██║██╔════╝██╔══██╗██╔══██╗██║██╔══██╗██╔════╝
+% ██║   ██║██║   ██║█████╗  ██████╔╝██████╔╝██║██║  ██║█████╗  
+% ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗██╔══██╗██║██║  ██║██╔══╝  
+% ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║██║  ██║██║██████╔╝███████╗
+%  ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{\raggedright}
+% [\titlerule]
+\titlespacing{\section}{0em}{0em}{0.1em}
+
+\newcommand{\oldtitle} {
+	\raggedright
+		{\huge\bfseries\theauthor} \linebreak[4]
+		\vspace{.25em}
+		\email \linebreak[4]
+		\vspace{.25em}
+		\dob \linebreak[4]
+		\vspace{.25em}
+		\parbox{17em}{
+			\textsl{\about} \linebreak[4]
+		}
+		\vspace{.45em}
+		\begin{compactitem}
+			\item[] \social{https://github.com/decent-man}{\socialht}{githubFull}
+			\item[] \social{https://www.linkedin.com/in/rakshit-shetty-465777242}{\socialht}{linkedinFull}
+			\item[] \social{https://gitlab.com/decentman}{\socialht}{gitlabFull}
+		\end{compactitem}
+}
+
+\newcommand{\socials}[0]{
+	\newcommand{\socialht}{.55cm}
+	\begin{tabular}[r]{ccc}
+		\multicolumn{3}{r}{\photo} \\
+		\social{https://github.com/decent-man}{\socialht}{githubFull} &
+		\social{https://www.linkedin.com/in/rakshit-shetty-465777242}{\socialht}{linkedinFull}	&
+		\social{https://gitlab.com/decentman}{\socialht}{gitlabFull} \\
+	\end{tabular}
+}
+
+\renewcommand{\maketitle}{
+	\begin{table}
+		\begin{tabular}[c]{p{0.46\linewidth} p{0.46\linewidth}}
+			{\huge\bfseries\theauthor} & \multirow{4}{*}{\socials} \\
+			\email & \\
+			\dob & \\
+			\textsl{\about} & \\
+		\end{tabular}
+	\end{table}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ███████╗██╗  ██╗██╗██╗     ██╗     ███████╗
+% ██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝
+% ███████╗█████╔╝ ██║██║     ██║     ███████╗
+% ╚════██║██╔═██╗ ██║██║     ██║     ╚════██║
+% ███████║██║  ██╗██║███████╗███████╗███████║
+% ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                           
+\newcommand{\skilTcoding}{
+	\begin{table}[H]
+		\label{tab:}
+			\begin{tabular}[c]{ll}
+				\multicolumn{2}{\skcolalign}{\slshape\bfseries Coding}\\
+				\shortrule
+				Rust & \level{4} \\
+				Shell & \level{4} \\
+				{\footnotesize Typescript} & \level{3} \\
+				HTML5 & \level{4} \\
+				CSS3 & \level{3} \\
+				{\footnotesize Markdown} & \level{4} \\
+				Python & \level{3} \\
+				Java & \level{2} \\
+				C & \level{2} \\
+				Kotlin & \level{2} \\
+				{\LaTeX} & \level{2} \\
+				SQL & \level{2} \\
+				C++ & \level{1} \\
+				Haskell & \level{1} \\
+				Lisp & \level{1} \\
+			\end{tabular}
+	\end{table}
+}
+\newcommand{\skilTcreative}{
+	\begin{table}[H]
+		\label{tab:}
+		\raggedleft
+			\begin{tabular}[c]{ll}
+				\multicolumn{2}{\skcolalign}{\slshape\bfseries Creative}\\
+				\toprule
+				\multicolumn{2}{l}{\slshape\bfseries Editing}\\
+				\hdashline
+				\footnotesize Video & \level{4} \\
+				\footnotesize Image & \level{3} \\
+				\footnotesize Audio & \level{2} \\
+				\multicolumn{2}{l}{\slshape\bfseries UI}\\
+				\hdashline
+				\footnotesize Design & \level{3} \\
+				\footnotesize Prototyping & \level{2} \\
+			\end{tabular}
+	\end{table}
+}
+\newcommand{\skilTLang}{
+	\begin{table}[H]
+		\label{tab:}
+		\raggedleft
+			\begin{tabular}[c]{ll}
+				\multicolumn{2}{\skcolalign}{\slshape\bfseries Language}\\
+				\toprule
+				\footnotesize English & \level{4} \\
+				\footnotesize Hindi & \level{4} \\
+				\footnotesize Kannada & \level{3} \\
+				\footnotesize Marathi & \level{2} \\
+			\end{tabular}
+	\end{table}
+}
+\newcommand{\skilTOthers}{
+	\begin{table}[H]
+		\label{tab:}
+		\raggedleft
+			\begin{tabular}[c]{ll}
+				\multicolumn{2}{\skcolalign}{\slshape\bfseries Others}\\
+				\toprule
+				\footnotesize Linux & \level{4} \\
+				\footnotesize Git & \level{3} \\
+				\footnotesize Docker & \level{2} \\
+			\end{tabular}
+	\end{table}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ██████╗  ██████╗ ██████╗ ██╗   ██╗
+% ██╔══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝
+% ██████╔╝██║   ██║██║  ██║ ╚████╔╝ 
+% ██╔══██╗██║   ██║██║  ██║  ╚██╔╝  
+% ██████╔╝╚██████╔╝██████╔╝   ██║   
+% ╚═════╝  ╚═════╝ ╚═════╝    ╚═╝   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                              
+\setlength\columnseprule{.4pt}
+\begin{document}
+	\title{R\'esum\'e}
+	\author{Rakshit Shetty}
+	\thispagestyle{empty}
+
+	\maketitle
+
+	\begin{multicols}{2}
+		\begin{minipage}{0.25\linewidth}
+				\section{Projects}
+					\setlength\intextsep{-0.3em}
+					\project{Timescale} {2020}
+					{ \tech{Java}{java}\hlogo{javafx}{2.6em}| 
+					  \tech{MySQL}{mysql} }
+					{A time management utility.}
+					{Make plans and get reminded :)}
+					{-}
+					\project{Lukup} {2021}
+					{ \tech{Python}{python} BeautifulSoup | request 
+					  \tech{Selenium}{selenium} 
+					  \tech{tkinter}{tk}
+					}
+					{A query maker.}
+					{Keep querying your favourite sources on the web for information!}
+					{\url{https://github.com/decent-man/lukup} }
+					\project{Kilowog}
+					{2021-2022}
+					{\tech{React}{react} \tech{Typescript}{ts} \tech{HTML}{html} \tech{CSS}{css} 
+					 \tech{Rust}{rust}(Server \& Scraper)
+				  \& \tech{Python}{python}(ML)
+					}
+					{A product comparison engine with recommendation capabilities.}
+					{Search for products and get results from multiple E-commerce giants on an intuitive UI tailored for information transparency.
+					 No databases just scraping.}
+					{ \url{https://github.com/decent-man/prcomp} }
+					\vspace{-1.2em}
+					\raggedleft
+					\scriptsize \textit{\& a few more.} \normalsize \\
+				\section{Education}
+					\course{SSC}
+						{2017}
+						{\school}
+						{89.80\%}
+					\course{HSC}
+						{2019}
+						{\hischool}
+						{61.85\%}
+					\course{B.E.Information Technology}
+						{2023}
+						{\college}
+						{8.12}
+				\section{Achievements}
+				\parbox{19em}{
+					\vspace{-.5em}
+					\begin{compactitem}
+						\item[$\rightarrow$] $2^{nd}$ in \textbf{Ramakrishna Math Interschool Presentation Competition(2016), Mumbai}
+						\item[$\rightarrow$] $1^{st}$ in \textbf{K/P West Ward Science Exhibition(2017-18), Mumbai}
+						\item[$\rightarrow$] \textbf{86.96} Percentile in \texttt{JEE Mains}
+						\item[$\rightarrow$] \textbf{69.05} Percentile in \texttt{MHT-CET}
+					\end{compactitem}
+				}
+		\end{minipage}
+	\columnbreak
+		% {\large\bfseries Skills}
+		\section{Skills}
+		{
+			\vspace{-1.5em}
+		\setlength\columnseprule{0pt}
+		\setlength\intextsep{0.3em}
+		\begin{multicols}{2}
+			\skilTcoding
+		% -------------------
+		\columnbreak
+		% -------------------
+			\skilTcreative
+			% -------------------
+			\skilTLang
+			% -------------------
+			\skilTOthers
+		\end{multicols}
+		}
+		\vspace{-2em}
+		% \setlength\intextsep{0.5em}
+		\section{Technologies}
+		\newcommand{\lht}{1.5em}
+		\parbox{19em}{
+			\hlogo{vim}{\lht}
+			\hlogo{gitFull}{\lht}
+			\hlogo{dockerFull}{\lht}
+			\hlogo{reactFull}{\lht}
+			\hlogo{mongoFull}{\lht}
+			\hlogo{mysqlFull}{\lht}
+			\linebreak[4] GNU Make, Regex
+		}
+		\section{Strengths}
+			% \small \parbox{19em}{Versatile, Adaptive, Creative, Analytical, Logical, Prospecting}
+			\begin{tabular}[c]{|l|l|l}
+				Versatile & Adaptive & Creative \\ 
+				Analytical & Logical & Prospecting \\
+			\end{tabular}
+		\section{Weakness}
+			% \small \parbox{19em}{Procrastination, Lazy, Overthinking, Pessimistic}
+			\begin{tabular}[c]{|l|l}
+				Procrastination & Lazy  \\
+				Overthinking & Pessimistic \\
+			\end{tabular}
+		\section{Hobbies}
+			\newcommand{\hobilogoht}{0.5cm}
+			\small
+			\begin{compactitem}
+				% \setlength\itemsep{-0.1em}
+				\item[|] \hlogo{game}{\hobilogoht} Video-Games
+				\item[|] \hlogo{music}{\hobilogoht} Music
+				\item[|] \hlogo{dumbbell}{\hobilogoht} Fitness
+				\item[|] \hlogo{tinker}{\hobilogoht} Tinkering
+			\end{compactitem}
+	\end{multicols}
+\end{document}
+
+		% {\large\bfseries Strengths}
+		% {\large\bfseries Weakness}
+
+% \renewcommand{\maketitle} {
+% 	\raggedright
+% 		{\huge\bfseries\theauthor} \linebreak[4]
+% 		\vspace{.25em}
+% 		\email \linebreak[4]
+% 		\vspace{.25em}
+% 		\dob \linebreak[4]
+% 		\vspace{.25em}
+% 		\parbox{17em}{
+% 			\textsl{\about} \linebreak[4]
+% 		}
+% 		\vspace{.45em}
+% 		\newcommand{\socialht}{.64cm}
+% 		\begin{compactitem}
+% 			\item[] \social{https://github.com/decent-man}{\socialht}{githubFull}
+% 			\item[] \social{https://www.linkedin.com/in/rakshit-shetty-465777242}{\socialht}{linkedinFull}
+% 			\item[] \social{https://gitlab.com/decentman}{\socialht}{gitlabFull}
+%
+% 		\end{compactitem}
+% 		
+% }
