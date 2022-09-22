@@ -249,7 +249,7 @@
 			\begin{tabular}[c]{ll}
 				\multicolumn{2}{\skcolalign}{\slshape\bfseries Languages}\\
 				\toprule
-				\multicolumn{2}{l}{\parbox{10em}{ English, Hindi, Kannada, Marathi, Tulu }}
+				\multicolumn{2}{l}{\parbox{10em}{\raggedright English, Hindi, Kannada, Marathi, Tulu }}
 				% \footnotesize English & \level{4} \\
 				% \footnotesize Hindi & \level{4} \\
 				% \footnotesize Kannada & \level{3} \\
@@ -267,6 +267,7 @@
 				\footnotesize Linux & \level{4} \\
 				\footnotesize Git & \level{3} \\
 				\footnotesize Docker & \level{2} \\
+				\footnotesize Vim & \level{3} \\
 			\end{tabular}
 	\end{table}
 }
@@ -290,22 +291,32 @@
 
 	\begin{multicols}{2}
 		\begin{minipage}{0.25\linewidth}
+				\section{Education}
+					\setlength\intextsep{0.2em}
+					\course{B.E.Information Technology}
+						{2023}
+						{\college}
+						{8.12}
+					\course{HSC}
+						{2019}
+						{\hischool}
+						{61.85\%}
+					\course{SSC}
+						{2017}
+						{\school}
+						{89.80\%}
+				\section{Achievements}
+				\parbox{19em}{
+					\vspace{-.5em}
+					\begin{compactitem}
+						\item[$\rightarrow$] \textbf{86.96} Percentile in \texttt{JEE Mains}
+						\item[$\rightarrow$] \textbf{69.05} Percentile in \texttt{MHT-CET}
+						\item[$\rightarrow$] $1^{st}$ in \textbf{K/P West Ward Science Exhibition(2017-18), Mumbai}
+						\item[$\rightarrow$] $2^{nd}$ in \textbf{Ramakrishna Math Interschool Presentation Competition(2016), Mumbai}
+					\end{compactitem}
+				}
 				\section{Projects}
 					\setlength\intextsep{-0.3em}
-					\project{Timescale} {2020}
-					{ \tech{Java}{java}\hlogo{javafx}{2.6em}| 
-					  \tech{MySQL}{mysql} }
-					{A time management utility.}
-					{Make plans and get reminded :)}
-					{-}
-					\project{Lukup} {2021}
-					{ \tech{Python}{python} BeautifulSoup | request 
-					  \tech{Selenium}{selenium} 
-					  \tech{tkinter}{tk}
-					}
-					{A query maker.}
-					{Keep querying your favourite sources on the web for information!}
-					{\url{https://github.com/decent-man/lukup} }
 					\project{Kilowog}
 					{2021-2022}
 					{\tech{React}{react} \tech{Typescript}{ts} \tech{HTML}{html} \tech{CSS}{css} 
@@ -316,64 +327,56 @@
 					{Search for products and get results from multiple E-commerce giants on an intuitive UI tailored for information transparency.
 					 No databases just scraping.}
 					{ \url{https://github.com/decent-man/prcomp} }
+					\project{Lukup} {2021}
+					{ \tech{Python}{python} BeautifulSoup | request 
+					  \tech{Selenium}{selenium} 
+					  \tech{tkinter}{tk}
+					}
+					{A query maker.}
+					{Keep querying your favourite sources on the web for information!}
+					{\url{https://github.com/decent-man/lukup} }
+					\project{Timescale} {2020}
+					{ \tech{Java}{java}\hlogo{javafx}{2.6em}| 
+					  \tech{MySQL}{mysql} }
+					{A time management utility.}
+					{Make plans and get reminded :)}
+					{-}
 					\vspace{-1.2em}
-					\raggedleft
 					\scriptsize \textit{\& a few more.} \normalsize \\
-				\section{Education}
-					\setlength\intextsep{0.2em}
-					\course{SSC}
-						{2017}
-						{\school}
-						{89.80\%}
-					\course{HSC}
-						{2019}
-						{\hischool}
-						{61.85\%}
-					\course{B.E.Information Technology}
-						{2023}
-						{\college}
-						{8.12}
-				\section{Achievements}
-				\parbox{19em}{
-					\vspace{-.5em}
-					\begin{compactitem}
-						\item[$\rightarrow$] $2^{nd}$ in \textbf{Ramakrishna Math Interschool Presentation Competition(2016), Mumbai}
-						\item[$\rightarrow$] $1^{st}$ in \textbf{K/P West Ward Science Exhibition(2017-18), Mumbai}
-						\item[$\rightarrow$] \textbf{86.96} Percentile in \texttt{JEE Mains}
-						\item[$\rightarrow$] \textbf{69.05} Percentile in \texttt{MHT-CET}
-					\end{compactitem}
-				}
 		\end{minipage}
 	\columnbreak
 		% {\large\bfseries Skills}
 		\section{Skills}
 		{
-			\vspace{-1.5em}
-		\setlength\columnseprule{0pt}
-		\setlength\intextsep{0.3em}
-		\begin{multicols}{2}
-			\skilTcoding
-		% -------------------
-		\columnbreak
-		% -------------------
-			\skilTcreative
+			\raggedright
+			\vspace{-5.5em}
+			\setlength\columnseprule{0pt}
+			\setlength\intextsep{0.3em}
+			\begin{multicols}{2}
+				\skilTcoding
 			% -------------------
-			\skilTLang
+			\columnbreak
 			% -------------------
-			\skilTOthers
-		\end{multicols}
+				\skilTcreative
+				% -------------------
+				\skilTLang
+				% -------------------
+				\skilTOthers
+			\end{multicols}
 		}
-		\vspace{-2em}
+		\vspace{-8em}
 		% \setlength\intextsep{0.5em}
 		\section{Technologies}
 		\newcommand{\lht}{1.5em}
 		\parbox{19em}{
+			\raggedright
 			\hlogo{vim}{\lht}
 			\hlogo{gitFull}{\lht}
 			\hlogo{dockerFull}{\lht}
 			\hlogo{reactFull}{\lht}
 			\hlogo{mongoFull}{\lht}
 			\hlogo{mysqlFull}{\lht}
+			\hlogo{linuxFull}{\lht}
 			\linebreak[4] GNU Make, Regex
 		}
 		\section{Strengths}
@@ -383,12 +386,6 @@
 				Analytical & Logical & Prospecting \\
 				\multicolumn{3}{l}{Team Player} \\
 			\end{tabular}
-		% \section{Weakness}
-		% 	% \small \parbox{19em}{Procrastination, Lazy, Overthinking, Pessimistic}
-		% 	\begin{tabular}[c]{|l|l}
-		% 		Procrastination & Lazy  \\
-		% 		Overthinking & Pessimistic \\
-		% 	\end{tabular}
 		\section{Hobbies}
 			\newcommand{\hobilogoht}{0.5cm}
 			\small
@@ -402,6 +399,12 @@
 	\end{multicols}
 \end{document}
 
+		% \section{Weakness}
+		% 	% \small \parbox{19em}{Procrastination, Lazy, Overthinking, Pessimistic}
+		% 	\begin{tabular}[c]{|l|l}
+		% 		Procrastination & Lazy  \\
+		% 		Overthinking & Pessimistic \\
+		% 	\end{tabular}
 		% {\large\bfseries Strengths}
 		% {\large\bfseries Weakness}
 
